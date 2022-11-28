@@ -8,7 +8,7 @@ add_executable(main
 )
 target_compile_features(main PRIVATE cxx_std_20)
 set_target_properties(main PROPERTIES CXX_EXTENSIONS OFF)
-target_link_libraries(main PRIVATE polyscope)
+target_link_libraries(main PRIVATE polyscope implot)
 target_include_directories(main PRIVATE ${polyscope_SOURCE_DIR}/polyscope/)
 
 if (MSVC)

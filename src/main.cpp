@@ -8,6 +8,7 @@
 #include <thread>
 #include <vector>
 
+#include "implot.h"
 #include "semaphore.hpp"
 
 struct Application
@@ -20,11 +21,13 @@ struct Application
     pbma::Semaphore mutex{1};
     std::vector<glm::vec3> points;
     std::vector<float> positions;
+    std::vector<float> times;
     float displacement{0.0f};
     int sign{1};
 
     Application()
     {
+        ImPlot::CreateContext();
         // Initialize polyscope
         polyscope::init();
         set_polyscope_settings();
@@ -54,6 +57,7 @@ struct Application
         shutdown();
         animation_thread.join();
         std::cout << "Bye!" << std::endl;
+        ImPlot::DestroyContext();
     }
 
     void main_loop()
@@ -112,8 +116,13 @@ struct Application
             full.acquire();
             mutex.acquire();
             point_cloud->setTransform(glm::translate(glm::mat4{1.0f}, glm::vec3{0.0f, displacement, 0.0f}));
-            ImGui::PlotLines("Position over Time", positions.data(),
-                             std::min(positions.size(), std::size_t{1'000'000}));
+            const std::size_t time_samples{std::min(positions.size(), std::size_t{10'000})};
+            if (ImPlot::BeginPlot("Position over Time"))
+            {
+                ImPlot::SetupAxesLimits(0, 10'000, 0, 4);
+                ImPlot::PlotLine("Position", positions.data(), time_samples);
+                ImPlot::EndPlot();
+            }
             mutex.release();
             empty.release();
         }

@@ -3,7 +3,6 @@ include(FetchContent)
 FetchContent_Declare(
     polyscope
     SYSTEM
-    GIT_REPOSITORY https://github.com/nmwsharp/polyscope.git
-    GIT_TAG v1.3.0
+    GIT_REPOSITORY https://github.com/math-araujo/polyscope.git
 )
 FetchContent_MakeAvailable(polyscope)
