@@ -119,7 +119,7 @@ struct Application
             const std::size_t time_samples{std::min(positions.size(), std::size_t{10'000})};
             if (ImPlot::BeginPlot("Position over Time"))
             {
-                ImPlot::SetupAxesLimits(0, 10'000, 0, 4);
+                ImPlot::SetupAxesLimits(0, std::max(time_samples, std::size_t{1'000}), 0, 4);
                 ImPlot::PlotLine("Position", positions.data(), time_samples);
                 ImPlot::EndPlot();
             }
