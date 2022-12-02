@@ -4,6 +4,7 @@ project(PBMA LANGUAGES CXX)
 
 add_executable(main 
     src/main.cpp
+    src/application.hpp src/application.cpp
     src/semaphore.hpp src/semaphore.cpp
 )
 target_compile_features(main PRIVATE cxx_std_20)
