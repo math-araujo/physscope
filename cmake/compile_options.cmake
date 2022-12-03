@@ -1,0 +1,7 @@
+function(set_compile_options target)
+    if (MSVC)
+        target_compile_options(${target} PRIVATE /W3)
+    else()
+        target_compile_options(${target} PRIVATE -Wall -Wextra -Wpedantic)
+    endif()
+endfunction()
