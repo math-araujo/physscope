@@ -6,7 +6,6 @@
 
 #include "application.hpp"
 #include "implot.h"
-#include "semaphore.hpp"
 
 class TemplateApplication : public pbma::Application
 {
@@ -59,7 +58,6 @@ private:
     polyscope::PointCloud* point_cloud{nullptr};
     std::vector<glm::vec3> points;
     std::vector<float> positions;
-    std::vector<float> times;
     float displacement{0.0f};
     int sign{1};
 };
