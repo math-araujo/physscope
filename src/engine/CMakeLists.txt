@@ -3,6 +3,7 @@ project(engine)
 add_library(engine STATIC 
     application.hpp application.cpp
     semaphore.hpp semaphore.cpp
+    io.hpp io.cpp
 )
 
 target_compile_features(engine PRIVATE cxx_std_20)
