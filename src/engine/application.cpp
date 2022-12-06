@@ -16,7 +16,7 @@ void Application::run()
     ImPlot::CreateContext();
     polyscope::init();
     set_polyscope_settings();
-
+    initialize();
     std::thread animation_thread{&Application::main_loop, this};
 
     polyscope::show(); // This function call blocks the main thread
@@ -40,6 +40,10 @@ void Application::set_polyscope_settings()
     polyscope::state::lengthScale = 2.0f;
     polyscope::options::alwaysRedraw = true;
     polyscope::state::userCallback = [this]() { this->user_callback(); };
+}
+
+void Application::initialize()
+{
 }
 
 void Application::main_loop()

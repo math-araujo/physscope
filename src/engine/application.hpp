@@ -27,6 +27,7 @@ public:
     void pause_animation();
 
     virtual void set_polyscope_settings();
+    virtual void initialize();
     virtual void physics_update() = 0;
     virtual void pre_draw() = 0;
 
