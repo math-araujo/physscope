@@ -97,6 +97,10 @@ void Application::user_callback()
     ImGui::PopItemWidth();
 }
 
+void Application::pre_draw()
+{
+}
+
 void Application::start_animation()
 {
     animate_.store(true);
