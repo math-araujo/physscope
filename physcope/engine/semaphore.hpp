@@ -4,7 +4,7 @@
 #include <condition_variable>
 #include <mutex>
 
-namespace pbma
+namespace physcope
 {
 
 class Semaphore
@@ -24,6 +24,6 @@ private:
     std::condition_variable condition_;
 };
 
-} // namespace pbma
+} // namespace physcope
 
 #endif // SEMAPHORE_HPP

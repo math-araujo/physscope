@@ -7,7 +7,7 @@
 #include "implot.h"
 #include "semaphore.hpp"
 
-namespace pbma
+namespace physcope
 {
 
 void Application::run()
@@ -118,4 +118,4 @@ void Application::shutdown()
     empty_.release();
 }
 
-} // namespace pbma
+} // namespace physcope

@@ -3,7 +3,7 @@
 
 #include "semaphore.hpp"
 
-namespace pbma
+namespace physcope
 {
 
 Semaphore::Semaphore(std::size_t initial_counter) noexcept : counter_{initial_counter}
@@ -32,4 +32,4 @@ void Semaphore::acquire() noexcept
     --counter_;
 }
 
-} // namespace pbma
+} // namespace physcope

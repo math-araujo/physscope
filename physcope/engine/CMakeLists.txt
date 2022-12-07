@@ -14,3 +14,4 @@ target_include_directories(engine PUBLIC ${tinyobjloader_SOURCE_DIR}/)
 target_include_directories(engine PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 set_compile_options(engine)
+add_library(physcope::engine ALIAS engine)

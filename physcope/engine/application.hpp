@@ -6,7 +6,7 @@
 
 #include "semaphore.hpp"
 
-namespace pbma
+namespace physcope
 {
 
 class Application
@@ -86,11 +86,11 @@ private:
 
     std::atomic<bool> running_{true};
     std::atomic<bool> animate_{false};
-    pbma::Semaphore empty_{1};
-    pbma::Semaphore full_{0};
-    pbma::Semaphore mutex_{1};
+    physcope::Semaphore empty_{1};
+    physcope::Semaphore full_{0};
+    physcope::Semaphore mutex_{1};
 };
 
-} // namespace pbma
+} // namespace physcope
 
 #endif // APPLICATION_HPP

@@ -7,7 +7,7 @@
 #include <utility>
 #include <vector>
 
-namespace pbma
+namespace physcope
 {
 
 /*
@@ -19,6 +19,6 @@ TODO: refactor this function to correctly process multiple triangle meshes.
 std::pair<std::vector<glm::vec3>, std::vector<std::array<std::size_t, 3>>> read_triangle_mesh_obj(
     std::string_view filename, bool verbose = false);
 
-} // namespace pbma
+} // namespace physcope
 
 #endif // IO_HPP

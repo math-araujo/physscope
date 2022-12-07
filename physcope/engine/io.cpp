@@ -2,7 +2,7 @@
 #include <iostream>
 #include <tiny_obj_loader.h>
 
-namespace pbma
+namespace physcope
 {
 
 std::pair<std::vector<glm::vec3>, std::vector<std::array<std::size_t, 3>>> read_triangle_mesh_obj(
@@ -64,4 +64,4 @@ std::pair<std::vector<glm::vec3>, std::vector<std::array<std::size_t, 3>>> read_
     return {vertices, indices};
 }
 
-} // namespace pbma
+} // namespace physcope
