@@ -26,6 +26,33 @@ std::pair<std::vector<glm::vec3>, std::vector<std::array<std::size_t, 3>>> read_
         std::cout << "TinyObjReader: " << reader.Warning();
     }
 
+    return read_triangle_mesh_obj(reader, verbose);
+}
+
+std::pair<std::vector<glm::vec3>, std::vector<std::array<std::size_t, 3>>> read_triangle_mesh_obj(
+    std::string_view wavefront, std::string_view mtl, bool verbose)
+{
+    tinyobj::ObjReader reader;
+    if (!reader.ParseFromString(wavefront.data(), mtl.data()))
+    {
+        if (!reader.Error().empty())
+        {
+            std::cerr << "TinyObjReader: " << reader.Error();
+        }
+        exit(1);
+    }
+
+    if (!reader.Warning().empty())
+    {
+        std::cout << "TinyObjReader: " << reader.Warning();
+    }
+
+    return read_triangle_mesh_obj(reader, verbose);
+}
+
+std::pair<std::vector<glm::vec3>, std::vector<std::array<std::size_t, 3>>> read_triangle_mesh_obj(
+    tinyobj::ObjReader& reader, bool verbose)
+{
     auto& attrib = reader.GetAttrib();
     auto& shapes = reader.GetShapes();
 
