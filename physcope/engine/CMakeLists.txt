@@ -4,6 +4,7 @@ add_library(engine STATIC
     application.hpp application.cpp
     semaphore.hpp semaphore.cpp
     io.hpp io.cpp
+    geometry.hpp geometry.cpp
     shapes/uv_sphere.hpp
 )
 
