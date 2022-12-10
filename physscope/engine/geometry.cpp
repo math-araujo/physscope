@@ -1,6 +1,6 @@
 #include "geometry.hpp"
 
-namespace physcope
+namespace physscope
 {
 
 namespace geometry
@@ -33,4 +33,4 @@ Triangle IndexedTriangleMesh::triangle(std::size_t triangle) const
 
 } // namespace geometry
 
-} // namespace physcope
+} // namespace physscope

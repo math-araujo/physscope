@@ -11,7 +11,7 @@
 #include "io.hpp"
 #include "shapes/uv_sphere.hpp"
 
-class TemplateApplication : public physcope::Application
+class TemplateApplication : public physscope::Application
 {
 public:
     // Note that Polyscope structures should NOT be created or
@@ -27,10 +27,10 @@ public:
     void initialize() override
     {
         // OBJ file can be read directly from file, if you wish so
-        // auto triangle_mesh{physcope::read_triangle_mesh_obj("assets/suzanne.obj", true)};
+        // auto triangle_mesh{physscope::read_triangle_mesh_obj("assets/suzanne.obj", true)};
 
         // ... Or you can store the OBJ file on a string_view variable and use it instead
-        auto triangle_mesh{physcope::read_triangle_mesh_obj(physcope::shapes::uv_sphere, "", true)};
+        auto triangle_mesh{physscope::read_triangle_mesh_obj(physscope::shapes::uv_sphere, "", true)};
         mesh = polyscope::registerSurfaceMesh("mesh", triangle_mesh.vertices, triangle_mesh.indices);
     }
 
@@ -39,7 +39,7 @@ public:
     This variable can then be used at pre_draw() member function
     to update the render-related Polyscope structures
     */
-    void physics_update() override
+    void physics_update(float /*delta_time*/) override
     {
         if (is_animating())
         {

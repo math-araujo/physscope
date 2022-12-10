@@ -2,7 +2,7 @@
 #include <iostream>
 #include <tiny_obj_loader.h>
 
-namespace physcope
+namespace physscope
 {
 
 geometry::IndexedTriangleMesh read_triangle_mesh_obj(std::string_view filename, bool verbose)
@@ -88,4 +88,4 @@ geometry::IndexedTriangleMesh read_triangle_mesh_obj(tinyobj::ObjReader& reader,
     return geometry::IndexedTriangleMesh{.vertices = std::move(vertices), .indices = std::move(indices)};
 }
 
-} // namespace physcope
+} // namespace physscope

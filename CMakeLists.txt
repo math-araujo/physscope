@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.25)
 include(cmake/fetchdependencies.cmake)
 include(cmake/compile_options.cmake)
-project(physcope LANGUAGES CXX)
+project(physscope LANGUAGES CXX)
 
-add_subdirectory(physcope/engine)
-add_subdirectory(physcope/chapters)
+add_subdirectory(physscope/engine)
+add_subdirectory(physscope/chapters)

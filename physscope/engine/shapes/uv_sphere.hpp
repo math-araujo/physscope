@@ -3,7 +3,7 @@
 
 #include <string>
 
-namespace physcope
+namespace physscope
 {
 
 namespace shapes
@@ -10099,6 +10099,6 @@ inline const std::string uv_sphere{"# Blender v3.2.0 OBJ File: ''\n"
 
 } // namespace shapes
 
-} // namespace physcope
+} // namespace physscope
 
 #endif // UV_SPHERE_HPP

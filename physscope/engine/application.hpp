@@ -6,7 +6,7 @@
 
 #include "semaphore.hpp"
 
-namespace physcope
+namespace physscope
 {
 
 class Application
@@ -67,7 +67,7 @@ protected:
     gravity force.
     See template.cpp for an example.
     */
-    virtual void physics_update() = 0;
+    virtual void physics_update(float delta_time) = 0;
 
     /*
     Implements custom updates to render-related structures
@@ -80,17 +80,17 @@ protected:
 
 private:
     void main_loop();
-    void update();
+    void update(float delta_time);
     void user_callback();
     void shutdown();
 
     std::atomic<bool> running_{true};
     std::atomic<bool> animate_{false};
-    physcope::Semaphore empty_{1};
-    physcope::Semaphore full_{0};
-    physcope::Semaphore mutex_{1};
+    physscope::Semaphore empty_{1};
+    physscope::Semaphore full_{0};
+    physscope::Semaphore mutex_{1};
 };
 
-} // namespace physcope
+} // namespace physscope
 
 #endif // APPLICATION_HPP

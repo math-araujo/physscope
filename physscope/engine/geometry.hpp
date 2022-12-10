@@ -5,7 +5,7 @@
 #include <glm/glm.hpp>
 #include <vector>
 
-namespace physcope
+namespace physscope
 {
 
 namespace geometry
@@ -34,6 +34,6 @@ struct IndexedTriangleMesh
 
 } // namespace geometry
 
-} // namespace physcope
+} // namespace physscope
 
 #endif // GEOMETRY_HPP

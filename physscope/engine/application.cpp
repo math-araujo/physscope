@@ -7,7 +7,7 @@
 #include "implot.h"
 #include "semaphore.hpp"
 
-namespace physcope
+namespace physscope
 {
 
 void Application::run()
@@ -48,9 +48,13 @@ void Application::initialize()
 
 void Application::main_loop()
 {
+    float current_time{static_cast<float>(ImGui::GetTime())};
     while (is_running())
     {
-        update();
+        const float new_time{static_cast<float>(ImGui::GetTime())};
+        const float delta_time{new_time - current_time};
+        current_time = new_time;
+        update(delta_time);
     }
 }
 
@@ -59,12 +63,12 @@ bool Application::is_running() const
     return running_.load();
 }
 
-void Application::update()
+void Application::update(float delta_time)
 {
     // Producer: generate physics updates
     empty_.acquire();
     mutex_.acquire();
-    physics_update();
+    physics_update(delta_time);
     mutex_.release();
     full_.release();
 }
@@ -118,4 +122,4 @@ void Application::shutdown()
     empty_.release();
 }
 
-} // namespace physcope
+} // namespace physscope

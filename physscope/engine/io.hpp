@@ -17,7 +17,7 @@ class ObjReader;
 
 } // namespace tinyobj
 
-namespace physcope
+namespace physscope
 {
 
 /*
@@ -33,6 +33,6 @@ geometry::IndexedTriangleMesh read_triangle_mesh_obj(std::string_view wavefront,
 
 geometry::IndexedTriangleMesh read_triangle_mesh_obj(tinyobj::ObjReader& reader, bool verbose = false);
 
-} // namespace physcope
+} // namespace physscope
 
 #endif // IO_HPP
