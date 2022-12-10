@@ -5,8 +5,7 @@
 namespace physcope
 {
 
-std::pair<std::vector<glm::vec3>, std::vector<std::array<std::size_t, 3>>> read_triangle_mesh_obj(
-    std::string_view filename, bool verbose)
+geometry::IndexedTriangleMesh read_triangle_mesh_obj(std::string_view filename, bool verbose)
 {
     tinyobj::ObjReaderConfig reader_config;
     reader_config.mtl_search_path = "assets/";
@@ -29,8 +28,7 @@ std::pair<std::vector<glm::vec3>, std::vector<std::array<std::size_t, 3>>> read_
     return read_triangle_mesh_obj(reader, verbose);
 }
 
-std::pair<std::vector<glm::vec3>, std::vector<std::array<std::size_t, 3>>> read_triangle_mesh_obj(
-    std::string_view wavefront, std::string_view mtl, bool verbose)
+geometry::IndexedTriangleMesh read_triangle_mesh_obj(std::string_view wavefront, std::string_view mtl, bool verbose)
 {
     tinyobj::ObjReader reader;
     if (!reader.ParseFromString(wavefront.data(), mtl.data()))
@@ -50,8 +48,7 @@ std::pair<std::vector<glm::vec3>, std::vector<std::array<std::size_t, 3>>> read_
     return read_triangle_mesh_obj(reader, verbose);
 }
 
-std::pair<std::vector<glm::vec3>, std::vector<std::array<std::size_t, 3>>> read_triangle_mesh_obj(
-    tinyobj::ObjReader& reader, bool verbose)
+geometry::IndexedTriangleMesh read_triangle_mesh_obj(tinyobj::ObjReader& reader, bool verbose)
 {
     auto& attrib = reader.GetAttrib();
     auto& shapes = reader.GetShapes();
@@ -88,7 +85,7 @@ std::pair<std::vector<glm::vec3>, std::vector<std::array<std::size_t, 3>>> read_
         ++shape_index;
     }
 
-    return {vertices, indices};
+    return geometry::IndexedTriangleMesh{.vertices = std::move(vertices), .indices = std::move(indices)};
 }
 
 } // namespace physcope

@@ -7,6 +7,8 @@
 #include <utility>
 #include <vector>
 
+#include "geometry.hpp"
+
 // Forward declaration of tinyobj::ObjReader
 namespace tinyobj
 {
@@ -24,14 +26,12 @@ Some OBJ files store multiple triangle meshes. Currently there's no need for thi
 functionality, but it would be good to support this for improved flexibility.
 TODO: refactor this function to correctly process multiple triangle meshes.
 */
-std::pair<std::vector<glm::vec3>, std::vector<std::array<std::size_t, 3>>> read_triangle_mesh_obj(
-    std::string_view filename, bool verbose = false);
+geometry::IndexedTriangleMesh read_triangle_mesh_obj(std::string_view filename, bool verbose = false);
 
-std::pair<std::vector<glm::vec3>, std::vector<std::array<std::size_t, 3>>> read_triangle_mesh_obj(
-    std::string_view wavefront, std::string_view mtl, bool verbose = false);
+geometry::IndexedTriangleMesh read_triangle_mesh_obj(std::string_view wavefront, std::string_view mtl,
+                                                     bool verbose = false);
 
-std::pair<std::vector<glm::vec3>, std::vector<std::array<std::size_t, 3>>> read_triangle_mesh_obj(
-    tinyobj::ObjReader& reader, bool verbose = false);
+geometry::IndexedTriangleMesh read_triangle_mesh_obj(tinyobj::ObjReader& reader, bool verbose = false);
 
 } // namespace physcope
 

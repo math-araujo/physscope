@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "application.hpp"
+#include "geometry.hpp"
 #include "implot.h"
 #include "io.hpp"
 #include "shapes/uv_sphere.hpp"
@@ -26,11 +27,11 @@ public:
     void initialize() override
     {
         // OBJ file can be read directly from file, if you wish so
-        // auto [vertices, indices] = physcope::read_triangle_mesh_obj("assets/uv_sphere.obj", true);
+        // auto triangle_mesh{physcope::read_triangle_mesh_obj("assets/suzanne.obj", true)};
 
         // ... Or you can store the OBJ file on a string_view variable and use it instead
-        auto [vertices, indices] = physcope::read_triangle_mesh_obj(physcope::shapes::uv_sphere, "", true);
-        mesh = polyscope::registerSurfaceMesh("mesh", vertices, indices);
+        auto triangle_mesh{physcope::read_triangle_mesh_obj(physcope::shapes::uv_sphere, "", true)};
+        mesh = polyscope::registerSurfaceMesh("mesh", triangle_mesh.vertices, triangle_mesh.indices);
     }
 
     /*
