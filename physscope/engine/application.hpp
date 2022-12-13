@@ -53,9 +53,8 @@ protected:
 
     /*
     This member-function allows derived classes to initialize
-    Polyscope-related objects. Polyscope objects can only be
-    created and initialized inside this member-function, because
-    Polyscope is initialized inside Application::run.
+    Polyscope-related objects. Polyscope structures can be
+    constructed and accessed inside this function.
     */
     virtual void initialize();
 
@@ -71,7 +70,8 @@ protected:
 
     /*
     Implements custom updates to render-related structures
-    before they are draw to the screen.
+    before they are draw to the screen. Polyscope structures
+    can be constructed and accessed inside this function.
     E.g. apply transform on Polyscope structures based on
     the physics_update output.
     See template.cpp for an example.
