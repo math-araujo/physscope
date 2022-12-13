@@ -1,4 +1,6 @@
-function(set_compile_options target)
+function(prepare_target target)
+    target_compile_features(${target} PRIVATE cxx_std_20)
+    set_target_properties(${target} PROPERTIES CXX_EXTENSIONS OFF)
     if (MSVC)
         target_compile_options(${target} PRIVATE /W3)
     else()
