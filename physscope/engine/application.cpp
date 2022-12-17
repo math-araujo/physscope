@@ -90,6 +90,11 @@ void Application::user_callback()
     {
         pause_animation();
     }
+    ImGui::SameLine();
+    if (ImGui::Button("Restart"))
+    {
+        restart();
+    }
 
     // Consumer: reads physics updates to update the graphics entities
     full_.acquire();
@@ -113,6 +118,12 @@ void Application::start_animation()
 void Application::pause_animation()
 {
     animate_.store(false);
+}
+
+void Application::restart()
+{
+    pause_animation();
+    initialize();
 }
 
 void Application::shutdown()

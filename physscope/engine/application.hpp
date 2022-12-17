@@ -45,6 +45,14 @@ protected:
     void pause_animation();
 
     /*
+    Restarts the simulation. All state is set to it's initial
+    configuration as defined at the initialize() member-function.
+    If you initialized data outside initialize(), it will not be
+    affected by a call to restart().
+    */
+    void restart();
+
+    /*
     This member-function specifies the default settings for
     rendering using Polyscope. It can be overridden to change the
     functionality on derived classes.
