@@ -95,6 +95,7 @@ void Application::user_callback()
     {
         restart();
     }
+    ImGui::PopItemWidth();
 
     // Consumer: reads physics updates to update the graphics entities
     full_.acquire();
@@ -102,8 +103,6 @@ void Application::user_callback()
     pre_draw();
     mutex_.release();
     empty_.release();
-
-    ImGui::PopItemWidth();
 }
 
 void Application::pre_draw()
