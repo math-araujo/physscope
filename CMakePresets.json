@@ -7,7 +7,7 @@
     },
     "configurePresets": [
         {
-            "name": "default-msvc",
+            "name": "msvc",
             "displayName": "Default MSVC",
             "description": "Default MSVC Build configuration",
             "generator": "Visual Studio 17 2022",
@@ -17,7 +17,7 @@
             }
         },
         {
-            "name": "default-unix",
+            "name": "unix",
             "displayName": "Default (Release) Unix Build Configuration",
             "generator": "Unix Makefiles",
             "binaryDir": "${sourceDir}/build",
